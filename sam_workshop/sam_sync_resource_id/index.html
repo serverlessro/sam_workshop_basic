@@ -9,23 +9,21 @@
     <meta name="generator" content="Retype 2.0">
 
     <!-- Primary Meta Tags -->
-    <title>Aws account and user</title>
-    <meta name="title" content="Aws account and user">
-    <meta name="description" content="To deploy your app, you’ll need access to an AWS account. If you already have an account and your system is configured with credentials of an..." />
+    <title>Sam sync resource-id</title>
+    <meta name="title" content="Sam sync resource-id">
+    <meta name="description" content="You can target one specific resource with the --resource-id flag to get more granular:" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://phatrabbitapps.com/prerequisites/aws_account/">
-    <meta property="og:title" content="Aws account and user">
-    <meta property="og:description" content="To deploy your app, you’ll need access to an AWS account. If you already have an account and your system is configured with credentials of an...">
-    <meta property="og:image" content="https://phatrabbitapps.com/img/h.png">
+    <meta property="og:url" content="https://phatrabbitapps.com/sam_workshop/sam_sync_resource_id/">
+    <meta property="og:title" content="Sam sync resource-id">
+    <meta property="og:description" content="You can target one specific resource with the --resource-id flag to get more granular:">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://phatrabbitapps.com/prerequisites/aws_account/">
-    <meta property="twitter:title" content="Aws account and user">
-    <meta property="twitter:description" content="To deploy your app, you’ll need access to an AWS account. If you already have an account and your system is configured with credentials of an...">
-    <meta property="twitter:image" content="https://phatrabbitapps.com/img/h.png">
+    <meta property="twitter:url" content="https://phatrabbitapps.com/sam_workshop/sam_sync_resource_id/">
+    <meta property="twitter:title" content="Sam sync resource-id">
+    <meta property="twitter:description" content="You can target one specific resource with the --resource-id flag to get more granular:">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -163,64 +161,21 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="aws-account-and-user" class="break-words">
+<doc-anchor-target id="sam-sync-resource-id" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#aws-account-and-user">#</doc-anchor-trigger>
-        <span>Aws account and user</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sam-sync-resource-id">#</doc-anchor-trigger>
+        <span>Sam sync resource-id</span>
     </h1>
 </doc-anchor-target>
-<p>To deploy your app, you’ll need access to an AWS account.
-If you already have an account and your system is configured with credentials of an administrator user, you can move to the next step.</p>
-<doc-anchor-target id="administrative-user">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#administrative-user">#</doc-anchor-trigger>
-        <span>Administrative user</span>
-    </h3>
-</doc-anchor-target>
-<ol>
-<li><p>Sign in to your AWS account</p>
-</li>
-<li><p>Go to the AWS IAM console and <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/users">create a new user</a>.</p>
-</li>
-<li><p>Type a name for your user (e.g. sam-workshop-user) and choose “Programmatic access”.
-<figure class="content-center">
-    <img src="../../img/h.png" alt="" />
-    <figcaption class="caption"></figcaption>
-</figure>
-<figure class="content-center">
-    <img src="../../img/i.png" alt="" />
-    <figcaption class="caption"></figcaption>
-</figure>
-<figure class="content-center">
-    <img src="../../img/j.png" alt="" />
-    <figcaption class="caption"></figcaption>
-</figure>
-<figure class="content-center">
-    <img src="../../img/k.png" alt="" />
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-</li>
-<li><p>In the next screen, you’ll see your Access key ID and you will have the option to click Show to show the Secret access key. Keep this browser window open.</p>
-</li>
-</ol>
-<doc-anchor-target id="configure-your-credentials">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#configure-your-credentials">#</doc-anchor-trigger>
-        <span>Configure your credentials</span>
-    </h1>
-</doc-anchor-target>
-<p>Open a terminal window and use aws configure to set up your environment. Type the access key ID and secret key and choose a default region (you can use us-east-1, eu-west-1, us-west-2 for example).
-Preferably use a region that doesn’t have any resources already deployed into it.</p>
+<p>You can target one specific resource with the <code v-pre>--resource-id</code> flag to get more granular:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">aws configure</code></pre>
+<pre class="language-none"><code v-pre class="language-none">sam sync --stack-name blog --code --resource-id HelloWorldFunction</code></pre>
 </doc-codeblock></div>
-<p>And fill in the information from the console:</p>
+<p>This time sam sync ignores the HelloGhanaFunction and only updates the HelloWorldFunction declared with the command’s--resource-id flag.
+<br />
+Or</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">AWS Access Key ID [None]: &lt;type key ID here&gt;
-AWS Secret Access Key [None]: &lt;type access key&gt;
-Default region name [None]: &lt;choose region (e.g. &quot;us-east-1&quot;, &quot;eu-west-1&quot;)&gt;
-Default output format [None]: &lt;leave blank&gt;</code></pre>
+<pre class="language-none"><code v-pre class="language-none">sam sync --stack-name blog --code --resource-id HelloGhanaFunction</code></pre>
 </doc-codeblock></div>
 
                                 
@@ -231,20 +186,20 @@ Default output format [None]: &lt;leave blank&gt;</code></pre>
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/sam_workshop/sam_sync_resource/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Introduction to Sam Accelerate</span>
+                                                <span class="block mt-1">Sam sync resource</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/prerequisites/aws_cli/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/sam_workshop/sam_sync_watch/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Aws cli</span>
+                                                <span class="block mt-1">Sam sync watch</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -288,6 +243,6 @@ Default output format [None]: &lt;leave blank&gt;</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Aws account and user", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Sam sync resource-id", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>

@@ -9,29 +9,32 @@
     <meta name="generator" content="Retype 2.0">
 
     <!-- Primary Meta Tags -->
-    <title>Sam sync watch</title>
-    <meta name="title" content="Sam sync watch">
-    <meta name="description" content="sam sync --stack-name sam-workshop-basic --watch" />
+    <title>Sam sync code</title>
+    <meta name="title" content="Sam sync code">
+    <meta name="description" content="sam sync --stack-name --code" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://phatrabbitapps.com/sam-workshop/sam_sync_watch/">
-    <meta property="og:title" content="Sam sync watch">
-    <meta property="og:description" content="sam sync --stack-name sam-workshop-basic --watch">
+    <meta property="og:url" content="https://phatrabbitapps.com/sam_workshop/sam_sync_code/">
+    <meta property="og:title" content="Sam sync code">
+    <meta property="og:description" content="sam sync --stack-name --code">
+    <meta property="og:image" content="https://phatrabbitapps.com/img/f.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://phatrabbitapps.com/sam-workshop/sam_sync_watch/">
-    <meta property="twitter:title" content="Sam sync watch">
-    <meta property="twitter:description" content="sam sync --stack-name sam-workshop-basic --watch">
+    <meta property="twitter:url" content="https://phatrabbitapps.com/sam_workshop/sam_sync_code/">
+    <meta property="twitter:title" content="Sam sync code">
+    <meta property="twitter:description" content="sam sync --stack-name --code">
+    <meta property="twitter:image" content="https://phatrabbitapps.com/img/f.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/resources/css/retype.css?v=2.0.700681576995" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.0.700686183431" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.0.700681576995" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.0.700686183431" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.0.700681576995" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.0.700686183431" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.0.700686183431" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -161,10 +164,10 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="sam-sync-watch" class="break-words">
+<doc-anchor-target id="sam-sync-code" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#sam-sync-watch">#</doc-anchor-trigger>
-        <span>Sam sync watch</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sam-sync-code">#</doc-anchor-trigger>
+        <span>Sam sync code</span>
     </h1>
 </doc-anchor-target>
 <div class="flex mb-6">
@@ -180,17 +183,50 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>sam sync --stack-name sam-workshop-basic --watch</p>
+<p stack-name="">sam sync --stack-name  --code</p>
         </div>
     </div>
 </div>
-<p>The <code v-pre>sam sync --watch</code> option tells AWS SAM to monitor for file changes and automatically synchronize when changes are detected.
-If the changes include configuration changes, AWS SAM performs a standard synchronization equivalent to the <code v-pre>sam sync</code> command.
-If the changes are code only, then AWS SAM synchronizes the code with the equivalent of the <code v-pre>sam sync --code</code> command.</p>
-<p>The first time you run the <code v-pre>sam sync</code> command with the  <code v-pre>--watch</code> flag, AWS SAM ensures that the latest code and infrastructure are in the cloud.
-It then monitors for file changes until you quit the command:</p>
-<p>Run the <code v-pre>sam sync --stack-name sam-workshop-basic --watch</code> command, watch the application build and sync with the cloud.</p>
-<p>Then make a change in any lambda handler, hit save and watch the code autosync</p>
+<p>Most times, we don&#x27;t want to synchronize our entire app to the cloud when we do a code update. We only want to push that part we
+updated.
+The <code v-pre>--code</code> option of <code v-pre>sam sync</code> comes in.
+<br /></p>
+<p>Let&#x27;s see it in action.</p>
+<p>Let&#x27;s make an update to our lambda function and use the <code v-pre>sam sync</code> with <code v-pre>--code</code>  command to sync our app to the cloud.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python"> {
+        &quot;statusCode&quot;: 200,
+        &quot;body&quot;: json.dumps({
+            &quot;message&quot;: &quot;hello world&quot;,
+            # &quot;location&quot;: ip.text.replace(&quot;\n&quot;, &quot;&quot;)
+        }),
+    }</code></pre>
+</doc-codeblock></div>
+<p>to</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python"> {
+        &quot;statusCode&quot;: 200,
+        &quot;body&quot;: json.dumps({
+            &quot;message&quot;: &quot;hello world, Welcome to Ghana AWS Meetup&quot;,
+            # &quot;location&quot;: ip.text.replace(&quot;\n&quot;, &quot;&quot;)
+        }),
+    }</code></pre>
+</doc-codeblock></div>
+<p>Now, run the command <code v-pre>sam sync --stack-name {stack-name} --code</code> and watch the app deploy under 10 seconds
+My stack name here is <code v-pre>sam-workshop-basic</code></p>
+<p><figure class="content-center">
+    <img src="../../img/f.png" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../img/g.png" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>The sam sync command verifies each of the code types present and synchronizes the sources to the cloud.
+This example uses an API Gateway REST API and two Lambda functions.
+AWS SAM skips the REST API because there is no external OpenAPI file for this project.
+However, the Lambda functions and their dependencies are synchronized.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -200,16 +236,23 @@ It then monitors for file changes until you quit the command:</p>
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/sam-workshop/sam_sync_resource_id/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/sam_workshop/sam_sync/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Sam sync resource id</span>
+                                                <span class="block mt-1">Sam sync</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/sam_workshop/sam_sync_resource/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Sam sync resource</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
                                     </div>
                                 </nav>
                             </footer>
@@ -250,6 +293,6 @@ It then monitors for file changes until you quit the command:</p>
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Sam sync watch", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Sam sync code", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
