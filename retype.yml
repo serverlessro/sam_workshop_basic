@@ -1,6 +1,6 @@
 input: .
 output: .retype
-url: https://phatrabbitapps.com/ # Add your website address here
+url:  # Add your website address here
 branding:
   title: SAM ACCELERATE
   label: Docs
