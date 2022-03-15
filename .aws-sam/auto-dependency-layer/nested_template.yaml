@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS SAM CLI Nested Stack for Auto Dependency Layer Creation
+Metadata:
+  SamCliInfo: 1.40.1
+  key: AWS SAM CLI sync command
+Outputs:
+  HelloGhanaFunction1fef1a07DepLayer:
+    Value:
+      Ref: HelloGhanaFunction1fef1a07DepLayer
+  HelloWorldFunction19d43fc4DepLayer:
+    Value:
+      Ref: HelloWorldFunction19d43fc4DepLayer
+Resources:
+  HelloGhanaFunction1fef1a07DepLayer:
+    Metadata:
+      CreatedBy: AWS SAM CLI sync command
+    Properties:
+      CompatibleRuntimes:
+      - python3.8
+      ContentUri: /Users/rosius/Documents/sam-workshop-basic/.aws-sam/auto-dependency-layer/HelloGhanaFunction1fef1a07DepLayer
+      Description: Auto created layer for dependencies of function HelloGhanaFunction
+      LayerName: sam-workshop-basc7a93e1f-HelloGhanaFunction1fef1a07-DepLayer
+      RetentionPolicy: Delete
+    Type: AWS::Serverless::LayerVersion
+  HelloWorldFunction19d43fc4DepLayer:
+    Metadata:
+      CreatedBy: AWS SAM CLI sync command
+    Properties:
+      CompatibleRuntimes:
+      - python3.8
+      ContentUri: /Users/rosius/Documents/sam-workshop-basic/.aws-sam/auto-dependency-layer/HelloWorldFunction19d43fc4DepLayer
+      Description: Auto created layer for dependencies of function HelloWorldFunction
+      LayerName: sam-workshop-basc7a93e1f-HelloWorldFunction19d43fc4-DepLayer
+      RetentionPolicy: Delete
+    Type: AWS::Serverless::LayerVersion
+Transform: AWS::Serverless-2016-10-31

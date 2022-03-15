@@ -16,7 +16,7 @@ Resources:
     Properties:
       CodeUri: hello_world/
       Handler: app.lambda_handler
-      Runtime: python3.9
+      Runtime: python3.8
       Architectures:
         - x86_64
       Events:
@@ -24,6 +24,20 @@ Resources:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /hello
+            Method: get
+  HelloGhanaFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: hello_ghana/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Architectures:
+        - x86_64
+      Events:
+        HelloWorld:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /ghana
             Method: get
 
 Outputs:
@@ -33,6 +47,9 @@ Outputs:
   HelloWorldApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+  HelloGhanaApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello Ghana function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/ghana/"
   HelloWorldFunction:
     Description: "Hello World Lambda Function ARN"
     Value: !GetAtt HelloWorldFunction.Arn

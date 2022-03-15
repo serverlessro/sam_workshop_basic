@@ -1,0 +1,79 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'sam-workshop-basic
+
+  Sample SAM Template for sam-workshop-basic
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: HelloWorldFunction
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Architectures:
+      - x86_64
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
+      Layers:
+      - Fn::GetAtt:
+        - AwsSamAutoDependencyLayerNestedStack
+        - Outputs.HelloWorldFunction19d43fc4DepLayer
+    Metadata:
+      SamResourceId: HelloWorldFunction
+  HelloGhanaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: HelloGhanaFunction
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Architectures:
+      - x86_64
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /ghana
+            Method: get
+      Layers:
+      - Fn::GetAtt:
+        - AwsSamAutoDependencyLayerNestedStack
+        - Outputs.HelloGhanaFunction1fef1a07DepLayer
+    Metadata:
+      SamResourceId: HelloGhanaFunction
+  AwsSamAutoDependencyLayerNestedStack:
+    DeletionPolicy: Delete
+    Metadata:
+      CreatedBy: AWS SAM CLI sync command
+    Properties:
+      TemplateURL: /Users/rosius/Documents/sam-workshop-basic/.aws-sam/auto-dependency-layer/nested_template.yaml
+    Type: AWS::CloudFormation::Stack
+Outputs:
+  HelloWorldApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+  HelloGhanaApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello Ghana function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/ghana/
+  HelloWorldFunction:
+    Description: Hello World Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunction
+      - Arn
+  HelloWorldFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunctionRole
+      - Arn
