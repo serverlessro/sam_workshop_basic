@@ -8,7 +8,18 @@ Description: 'sam-workshop-basic
 Globals:
   Function:
     Timeout: 3
+    Tracing: Active
 Resources:
+  HelloWorldApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      EndpointConfiguration: REGIONAL
+      TracingEnabled: true
+      MethodSettings:
+      - LoggingLevel: INFO
+        HttpMethod: '*'
+        ResourcePath: /*
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -23,6 +34,8 @@ Resources:
           Properties:
             Path: /hello
             Method: get
+            RestApiId:
+              Ref: HelloWorldApi
       Layers:
       - Fn::GetAtt:
         - AwsSamAutoDependencyLayerNestedStack
@@ -43,6 +56,8 @@ Resources:
           Properties:
             Path: /ghana
             Method: get
+            RestApiId:
+              Ref: HelloWorldApi
       Layers:
       - Fn::GetAtt:
         - AwsSamAutoDependencyLayerNestedStack
@@ -60,11 +75,11 @@ Outputs:
   HelloWorldApi:
     Description: API Gateway endpoint URL for Prod stage for Hello World function
     Value:
-      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+      Fn::Sub: https://${HelloWorldApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
   HelloGhanaApi:
     Description: API Gateway endpoint URL for Prod stage for Hello Ghana function
     Value:
-      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/ghana/
+      Fn::Sub: https://${HelloWorldApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/ghana/
   HelloWorldFunction:
     Description: Hello World Lambda Function ARN
     Value:

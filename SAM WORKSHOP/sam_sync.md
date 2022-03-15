@@ -15,55 +15,12 @@ The command `sam sync`  synchronizes your project declared in an AWS SAM templat
 ### Configuration
 - Everything else
 
-Let's make an update to our lambda function and use the `sam sync` command to push the update to the cloud in seconds.
-```python
- {
-        "statusCode": 200,
-        "body": json.dumps({
-            "message": "hello world",
-            # "location": ip.text.replace("\n", "")
-        }),
-    }
-```
-
-to 
-
-```python
- {
-        "statusCode": 200,
-        "body": json.dumps({
-            "message": "hello world, Welcome to Ghana AWS Meetup",
-            # "location": ip.text.replace("\n", "")
-        }),
-    }
-```
-Now, run the command `sam sync --stack-name {stack-name} --code` and watch the app deploy under 10 seconds 
-
-![](../img/f.png)
-![](../img/g.png)
-
-The sam sync command verifies each of the code types present and synchronizes the sources to the cloud. 
-This example uses an API Gateway REST API and two Lambda functions. 
-AWS SAM skips the REST API because there is no external OpenAPI file for this project. 
-However, the Lambda functions and their dependencies are synchronized.
-
-You can limit the synchronized resources by using the `--resource` flag with the `--code` flag:
-
-This command limits the synchronization to Lambda functions
+### Using sam sync (no options)
+The `sam sync` command with no options deploys or updates all infrastructure and code like the sam deploy command.
+So underneath, `sam sync` runs `sam build`, then synchronizes your application to the cloud.
 
 ```
-sam sync --stack-name blog --code --resource AWS::Serverless::Function
+sam sync --stack-name sam-workshop-basic
+```
+Let's see it in Action. Go to your application and run the above code from the terminal.
 
-```
-Other available resources are `AWS::Serverless::Api`, `AWS::Serverless::HttpApi`, and `AWS::Serverless::StateMachine`.
-
-You can target one specific resource with the `--resource-id` flag to get more granular:
-
-```
-sam sync --stack-name blog --code --resource-id HelloWorldFunction
-```
-
-Or 
-```
-sam sync --stack-name blog --code --resource-id HelloGhanaFunction
-```
