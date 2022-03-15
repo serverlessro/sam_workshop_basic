@@ -1,4 +1,4 @@
-
+# Sam sync resource
 !!!
 sam sync --stack-name blog --code --resource AWS::Serverless::Function
 !!!

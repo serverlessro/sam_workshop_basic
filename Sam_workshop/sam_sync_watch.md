@@ -1,3 +1,4 @@
+# Sam sync watch
 !!!
 sam sync --stack-name sam-workshop-basic --watch
 !!!

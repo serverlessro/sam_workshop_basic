@@ -1,4 +1,4 @@
-# INTRODUCTION  
+# Introduction
 ### AWS SAM ACCELERATE
 AWS SAM(Serverless Application Model) is an open source IaC(Infrastructure As Code) framework created by the AWS Team to help
 developers build and test Serverless Applications.

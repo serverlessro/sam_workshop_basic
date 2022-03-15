@@ -1,4 +1,4 @@
-# SAM BUILD AND DEPLOY
+# Sam build and deploy
 Now that we've created a SAM project, let's go ahead and deploy the app to the cloud. 
 Firstly, we'll go ahead and deploy our app the old fashion way. That is, using the commands.
 - `sam build`

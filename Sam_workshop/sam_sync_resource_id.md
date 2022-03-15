@@ -1,3 +1,4 @@
+# Sam sync resource-id
 You can target one specific resource with the `--resource-id` flag to get more granular:
 
 ```

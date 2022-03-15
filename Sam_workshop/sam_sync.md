@@ -1,4 +1,4 @@
-# SAM SYNC
+# Sam sync
 
 The command `sam sync`  synchronizes your project declared in an AWS SAM template to the AWS Cloud.
 `sam sync` breaks down the project into 2 parts.

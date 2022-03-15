@@ -1,4 +1,4 @@
-# NEW PROJECT
+# New project
 After installing the prerequisites, 
 1) Open up a terminal/command prompt and run the command `sam init`
 <br />

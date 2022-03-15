@@ -1,4 +1,4 @@
-# IDE FOR PROGRAMMING
+# Integrated development environment
 We highly recommend to use an IDE that supports code-completion and syntax highlighting for your language of choice
  * [VS Code](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/welcome.html)(recommende)
  * [CLion](https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/welcome.html)
