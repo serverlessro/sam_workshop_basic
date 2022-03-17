@@ -1,6 +1,7 @@
 input: .
 output: .retype
-url:  # Add your website address here
+url: 100daysofserverless.com # Add your website address here
+cname: false
 branding:
   title: SAM ACCELERATE
   label: Docs
