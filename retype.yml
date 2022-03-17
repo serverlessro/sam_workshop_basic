@@ -1,9 +1,8 @@
 input: .
 output: .retype
 url: 100daysofserverless.dev # Add your website address here
-cname: false
 branding:
-  title: SAM ACCELERATE
+  title: AWS SAM ACCELERATE
   label: Docs
 links:
 - text: Getting Started
