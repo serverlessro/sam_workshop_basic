@@ -12,4 +12,4 @@ It then monitors for file changes until you quit the command:
 
 Run the `sam sync --stack-name sam-workshop-basic --watch` command, watch the application build and sync with the cloud. 
 
-Then make a change in any lambda handler, hit save and watch the code autosync
+Then make a change in any lambda handler, hit save and watch the code autosync.
