@@ -1,6 +1,6 @@
 input: .
 output: .retype
-url: 100daysofserverless.dev # Add your website address here
+url: serverlessro.github.io/sam_workshop_basic/ # Add your website address here
 branding:
   title: AWS SAM ACCELERATE
   label: Docs
