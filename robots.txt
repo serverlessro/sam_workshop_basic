@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://100daysofserverless.dev/sitemap.xml.gz
+Sitemap: https://serverlessro.github.io/sam_workshop_basic/sitemap.xml.gz
