@@ -27,11 +27,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/resources/css/retype.css?v=2.0.700831760203" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.0.701003983857" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.0.700831760203" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.0.701003983857" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.0.700831760203" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.0.701003983857" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -190,7 +190,7 @@ If the changes are code only, then AWS SAM synchronizes the code with the equiva
 <p>The first time you run the <code v-pre>sam sync</code> command with the  <code v-pre>--watch</code> flag, AWS SAM ensures that the latest code and infrastructure are in the cloud.
 It then monitors for file changes until you quit the command:</p>
 <p>Run the <code v-pre>sam sync --stack-name sam-workshop-basic --watch</code> command, watch the application build and sync with the cloud.</p>
-<p>Then make a change in any lambda handler, hit save and watch the code autosync</p>
+<p>Then make a change in any lambda handler, hit save and watch the code autosync.</p>
 
                                 
                                 <!-- Required only on API pages -->
